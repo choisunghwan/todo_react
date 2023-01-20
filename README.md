@@ -20,4 +20,15 @@ $ npm start
 
 
 
+
+
+---
+## 단축키
+
 rafce : 자동 완성
+
+shift + alt + 방향키(위아래) : 복사
+
+
+
+[https://github.com/ults-io/vscode-react-javascript-snippets/blob/HEAD/docs/Snippets.md]
