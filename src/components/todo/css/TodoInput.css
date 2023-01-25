@@ -7,6 +7,8 @@
 
     padding: 32px 32px 72px ;
     box-sizing: border-box;
+
+    /* display: none; */
 }
 
 .todo-input input{
@@ -47,5 +49,21 @@
     z-index: 10;
 
     cursor: pointer;
+    /* 애니메이션 지연효과 */
+    transition: 0.5s;
 
+}
+
+.begin-btn:hover{
+    /* background: #8effdd; */
+    background: #63e6be;
+}
+
+.begin-btn.open {
+    background: #ff6b6b;
+    transform: translate(-50%, 0) rotate(45deg);
+}
+
+.begin-btn.open:hover{
+    background: #ff8787;
 }
