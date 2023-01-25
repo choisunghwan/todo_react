@@ -27,6 +27,18 @@ const TodoTemplate = () => {
     });
   };
 
+  // 할 일 삭제 요청 처리
+  const deleteTodo = (id) => {
+
+    fetch(`${API_BASE_URL}/${id}`,{
+      method: 'DELETE'
+    })
+    .then(res=>res.json())
+    .then(result =>{
+      setTodos(result.todos);
+    });
+  };
+
 
   // 렌더링되자마자 할 일 => todos api GET 목록 호출
   useEffect(() => {
@@ -44,7 +56,7 @@ const TodoTemplate = () => {
   return (
     <div className="todo-template">
         <TodoHeader todoList={todos} />
-        <TodoMain todoList={todos} />
+        <TodoMain todoList={todos} remove={deleteTodo} />
         <TodoInput add={addTodo} />
     </div>
   );
