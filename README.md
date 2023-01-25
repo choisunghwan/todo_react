@@ -24,7 +24,13 @@ $ npm install react-icons classnames
 ```
 react icons - 아이콘 사용[https://react-icons.github.io/react-icons]
 
+사용법 예시
+```
+import{ MdDone, MdDelete } from 'react-icons/md';
 
+<MdDone/>
+<MdDelete/>
+```
 
 
 ---
