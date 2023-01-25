@@ -1,0 +1,50 @@
+
+.todo-item{
+    /* 수평 배치 */
+    display: flex; 
+    border: 1px solid #000;
+    padding: 12px 0;
+    /* 교차 축 중앙 정렬:aic */
+    align-items: center;
+}
+
+.todo-item .check-circle {
+    width: 32px;
+    height: 32px;
+    /* background-color: orange; */
+    /* 원 만들기 */
+    border-radius: 50%;
+    font-size: 24px;
+    border: 1px solid #9da1a7;
+
+    /* 텍스트 정중앙 배치 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 20px;
+    cursor: pointer;
+    /* background: skyblue; */
+    /* flex: 1; */
+}
+
+.todo-item .text{
+    font-size: 21px;
+    color: #495057;
+    /* background: yellowgreen; */
+    flex: 1;
+}
+
+.todo-item .remove{
+    font-size: 28px;
+    color: #f51b4f;
+    cursor: pointer;
+    /* background: orange; */
+
+    /* 정중앙 배치 */
+    display: flex;
+    /* 단축키: jcc*/
+    justify-content: center;
+    align-items: center;
+    /* flex: 1; */
+}

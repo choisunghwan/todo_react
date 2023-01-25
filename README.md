@@ -18,6 +18,11 @@ $ npm start
 ```
 - http://localhost:3000 에서 프론트엔드 서버 실행
 
+5. 추가 라이브러리
+```
+$ npm install react-icons classnames
+```
+
 
 
 

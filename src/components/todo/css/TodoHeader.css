@@ -1,0 +1,26 @@
+
+header{
+    /* background-color: orange; */
+    border-bottom: 1px solid #bbb;
+    padding: 48px 32px 24px 32px;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+header .day{
+    font-size: 21px;
+    color: #868e96;
+    margin-top: 12px;
+    margin-bottom: 40px;
+}
+
+
+header .task-left{
+    font-size: 18px;
+    font-weight: bold;
+    color: #20c997;
+}
