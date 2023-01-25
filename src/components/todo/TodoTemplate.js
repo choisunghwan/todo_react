@@ -22,7 +22,7 @@ const TodoTemplate = () => {
     {
       id:3,
       title: '샌드위치 사 먹기',
-      done:false
+      done:true
     },
     {
       id:4,
@@ -34,7 +34,7 @@ const TodoTemplate = () => {
 
   return (
     <div className='todo-template'>
-        <TodoHeader />
+        <TodoHeader todoList={todos} />
         <TodoMain todoList={todos}/>
         <TodoInput/>
     </div>

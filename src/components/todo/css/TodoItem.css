@@ -28,11 +28,22 @@
     /* flex: 1; */
 }
 
+.todo-item .check-circle.active{
+    border: 1px solid #38d9a9;
+    color: #38d9a9;
+}
+
 .todo-item .text{
     font-size: 21px;
     color: #495057;
     /* background: yellowgreen; */
     flex: 1;
+}
+
+.todo-item .text.finish{
+    color: #919396;
+    text-decoration: line-through;
+    
 }
 
 .todo-item .remove{
