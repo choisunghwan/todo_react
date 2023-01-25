@@ -1,0 +1,10 @@
+
+.todo-list{
+    flex:1;
+    /* max-height: 400px; */
+    padding: 20px 32px 48px;
+    /* 자식박스가 부모의 길이나 너비를 넘어갔을 때 */
+    /* overflow: hidden; */
+    /* overflow: scroll; */
+    overflow: auto;
+}

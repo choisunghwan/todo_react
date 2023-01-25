@@ -2,7 +2,7 @@
 .todo-item{
     /* 수평 배치 */
     display: flex; 
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     padding: 12px 0;
     /* 교차 축 중앙 정렬:aic */
     align-items: center;
@@ -37,7 +37,7 @@
 
 .todo-item .remove{
     font-size: 28px;
-    color: #f51b4f;
+    color: #ccc;
     cursor: pointer;
     /* background: orange; */
 
@@ -47,4 +47,14 @@
     justify-content: center;
     align-items: center;
     /* flex: 1; */
+    display: none;
+}
+
+.todo-item:hover .remove{
+    display: block;
+    
+}
+
+.todo-item .remove:hover{
+    color: #f51b4f;
 }

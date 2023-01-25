@@ -12,4 +12,9 @@
     margin: 100px auto;
 
     position: relative;
+
+    /* overflow: hidden; */
+
+    display: flex;
+    flex-direction: column;
 }

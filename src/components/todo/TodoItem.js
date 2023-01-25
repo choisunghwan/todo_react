@@ -1,13 +1,15 @@
 import React from 'react';
 import{ MdDone, MdDelete } from 'react-icons/md';
 import './css/TodoItem.css';
-const TodoItem = () => {
+const TodoItem = ({todo}) => {
+
+  const{title,done} = todo;
   return (
     <li className='todo-item'>
         <div className='check-circle'>
-            <MdDone/>
+            {done && <MdDone/>}
         </div>
-        <span className='text'>할 일 텍스트</span>
+        <span className='text'>{title}</span>
         <div className='remove'>
             <MdDelete/>
         </div>
