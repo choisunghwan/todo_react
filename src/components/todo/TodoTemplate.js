@@ -30,12 +30,26 @@ const TodoTemplate = () => {
   // 할 일 삭제 요청 처리
   const deleteTodo = (id) => {
 
-    fetch(`${API_BASE_URL}/${id}`,{
-      method: 'DELETE'
+    fetch(`${API_BASE_URL}/${id}`, {
+        method: 'DELETE'
     })
-    .then(res=>res.json())
-    .then(result =>{
-      setTodos(result.todos);
+    .then(res => res.json())
+    .then(result => {
+        setTodos(result.todos);
+    });
+  };
+
+  // 할 일 수정 요청 처리
+  const updateTodo = todo => {
+
+    fetch(`${API_BASE_URL}/${todo.id}`, {
+        method: 'PUT',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(todo)
+    })
+    .then(res => res.json())
+    .then(result => {
+        setTodos(result.todos);
     });
   };
 
@@ -56,7 +70,11 @@ const TodoTemplate = () => {
   return (
     <div className="todo-template">
         <TodoHeader todoList={todos} />
-        <TodoMain todoList={todos} remove={deleteTodo} />
+        <TodoMain 
+            todoList={todos} 
+            remove={deleteTodo} 
+            update={updateTodo} 
+        />
         <TodoInput add={addTodo} />
     </div>
   );
