@@ -8,6 +8,8 @@ const Join = () => {
 
     const API_BASE_URL = BASE_URL + USER;
 
+    
+
    // 검증 메시지 저장 
    const [message, setMessage] = useState({
       username: '',
@@ -20,6 +22,13 @@ const Join = () => {
       username: false,
       password: false,
       email: false
+   });
+
+   // 입력값 저장
+   const [userValue, setUserValue] = useState({
+      userName: '',
+      password: '',
+      email: ''
    });
 
   // 유저 이름 입력란 검증 체인지 이벤트 핸들러
@@ -53,6 +62,11 @@ const Join = () => {
         ...message,
         username: msg
     });
+
+    setUserValue({
+        ...userValue,
+        userName: e.target.value
+    });
   };
 
   // 이메일 중복확인 요청 함수
@@ -78,6 +92,7 @@ const Join = () => {
                 ...message,
                 email: msg
             });
+            
         });
   };
 
@@ -97,6 +112,10 @@ const Join = () => {
             checkEmail(e.target.value);
         }
         setMessage({...message, email: msg});
+        setUserValue({
+            ...userValue,
+            email: e.target.value
+        });
     };
 
 
@@ -130,12 +149,56 @@ const Join = () => {
         ...message,
         password: msg
     });
+    setUserValue({
+        ...userValue,
+        password: e.target.value
+    });
   };
 
+  // validate객체 안의 모든 논리값이 true인지 검사하는 함수
+  const isValid = () => {
+    
+    // of : 배열 반복, in : 객체 반복
+    // 객체에서 key값만 뽑아줌 'username'
+    for (let key in validate) {
+        let value = validate[key];
+        if (!value) return false;
+    }
+    return true;
+  };
+
+  // 회원가입 요청 서버로 보내기
+  const submitHandler = e => {
+     e.preventDefault();
+
+     // 입력값 검증을 올바르게 수행했는지 검사
+     if (isValid()) {
+        // alert('회원가입 이제 보낼게~~');
+
+        fetch(`${API_BASE_URL}/signup`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userValue)
+        })
+        .then(res => {
+            if (res.status === 200) {
+                alert('회원가입을 축하합니다.');
+                // 로그인페이지로 리다이렉트
+            } else {
+                alert('회원가입에 실패했습니다. 잠시 후 다시 시도하세요.');
+            }
+        });
+
+     } else {
+        alert('입력창 다시확인해라~~');
+     }
+  };
 
   return (
     <Container component="main" maxWidth="xs" style={{ margin: "300px auto" }}>
-        <form noValidate>
+        <form noValidate onSubmit={submitHandler}>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Typography component="h1" variant="h5">
@@ -196,7 +259,7 @@ const Join = () => {
                     }>{message.password}</span>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button type="submit" fullWidth variant="contained" color="primary">
+                    <Button type="submit" fullWidth variant="contained" style={{background: '#38d9a9'}}>
                         계정 생성
                     </Button>
                 </Grid>
