@@ -9,7 +9,7 @@
     box-shadow: 0px 0px 8px #aaa;
 
     /* 박스 x 축 중앙 정렬 : margin 좌우값을 auto로 설정*/
-    margin: 100px auto;
+    margin: 200px auto 100px;
 
     position: relative;
 

@@ -21,7 +21,13 @@ $ npm start
 5. 추가 라이브러리
 ```
 $ npm install react-icons classnames
+$ npm install reactstrap bootstrap
+$ npm install @mui/material @emotion/react @emotion/styled
+$ npm install @mui/icons-material
+$ npm install react-router-dom
 ```
+
+
 react icons - 아이콘 사용[https://react-icons.github.io/react-icons]
 
 사용법 예시
@@ -31,6 +37,11 @@ import{ MdDone, MdDelete } from 'react-icons/md';
 <MdDone/>
 <MdDelete/>
 ```
+
+
+
+
+
 
 
 ---
