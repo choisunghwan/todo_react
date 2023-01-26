@@ -7,21 +7,21 @@ import { BASE_URL, USER } from '../../config/host-config';
 const Join = () => {
 
     const API_BASE_URL = BASE_URL + USER;
-
     
-
    // 검증 메시지 저장 
    const [message, setMessage] = useState({
       username: '',
       password: '',
-      email: ''
+      email: '',
+      passwordCheck: ''
    });  
 
    // 검증 완료 여부
    const [validate, setValidate] = useState({
       username: false,
       password: false,
-      email: false
+      email: false,
+      passwordCheck: false
    });
 
    // 입력값 저장
@@ -155,6 +155,36 @@ const Join = () => {
     });
   };
 
+  // 비밀번호확인 입력란 검증 체인지 이벤트 핸들러
+  const passwordCheckHandler = e => {
+
+    // 검증 시작
+    let msg;
+    if (!e.target.value) { // 패스워드 안적은거
+        msg = '비밀번호 확인란은 필수값입니다!';
+        setValidate({
+            ...validate,
+            passwordCheck: false
+        });
+    } else if (userValue.password !== e.target.value) {
+        msg = '패스워드가 일치하지 않습니다.';
+        setValidate({
+            ...validate,
+            passwordCheck: false
+        });
+    } else {
+        msg = '패스워드가 일치합니다.';
+        setValidate({
+            ...validate,
+            passwordCheck: true
+        });
+    }
+    setMessage({
+        ...message,
+        passwordCheck: msg
+    });
+  };
+
   // validate객체 안의 모든 논리값이 true인지 검사하는 함수
   const isValid = () => {
     
@@ -258,6 +288,26 @@ const Join = () => {
                         : {color: 'red'}
                     }>{message.password}</span>
                 </Grid>
+
+                <Grid item xs={12}>
+                    <TextField
+                        variant="outlined"
+                        required
+                        fullWidth
+                        name="password-check"
+                        label="패스워드 확인"
+                        type="password"
+                        id="password-check"
+                        autoComplete="check-password"
+                        onChange={passwordCheckHandler}
+                    />
+                    <span style={
+                        validate.passwordCheck
+                        ? {color: 'green'}
+                        : {color: 'red'}
+                    }>{message.passwordCheck}</span>
+                </Grid>
+
                 <Grid item xs={12}>
                     <Button type="submit" fullWidth variant="contained" style={{background: '#38d9a9'}}>
                         계정 생성
