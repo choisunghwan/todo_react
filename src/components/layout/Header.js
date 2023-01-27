@@ -19,6 +19,13 @@ const Header = () => {
                         <Typography variant="h4">오늘의 할일</Typography>   
                     </div>
                 </Grid>
+
+                <Grid item>
+                    <div className='btn-group'>
+                        <a href='/login'>로그인</a>
+                        <a href='/join'>회원가입</a>
+                    </div>
+                </Grid>
                
             </Grid>
         </Toolbar>

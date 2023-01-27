@@ -68,6 +68,7 @@ const TodoTemplate = () => {
             alert('로그인이 필요한 서비스입니다!');
             // setLoading(false);
             //리다이렉트
+            window.location.href = '/login';
             return;
           }else if(res.status ===500){
             alert('서버가 불안정합니다.');
