@@ -7,6 +7,11 @@ const TodoItem = ({ todo, remove, update}) => {
 
   const {id, title, done} = todo;
 
+  //제목 수정 모드로 진입했는지 여부
+  
+  const[updateFlag, setUpdateFlag] = useState(false)
+
+
   // 서버에 삭제요청 클릭 이벤트핸들러
   const deleteClickHandler = e => {
     remove(id);
