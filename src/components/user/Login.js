@@ -84,7 +84,7 @@ const Login = () => {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            color="primary"
+                            style={{background: '#38d9a9'}}
                         >
                             로그인
                         </Button>
